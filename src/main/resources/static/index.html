@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Tracker</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Job Tracker</h1>
+      <p>Applications, status, reminders aur AI follow-up email</p>
+      <span id="authBadge" class="pill">Logged out</span>
+    </header>
+
+    <section class="card">
+      <h2>Account</h2>
+      <div class="grid2">
+        <form id="registerForm">
+          <h3>1. Register</h3>
+          <input name="name" placeholder="Aapka poora naam *" required>
+          <input name="email" type="email" placeholder="email" required>
+          <input name="password" type="password" placeholder="password (8+, capital, number)" required>
+          <button type="submit">Register</button>
+        </form>
+        <form id="verifyForm">
+          <h3>2. Verify OTP</h3>
+          <input name="email" type="email" placeholder="email" required>
+          <input name="code" placeholder="6 digit OTP (console mein dekho)" required>
+          <button type="submit">Verify</button>
+        </form>
+      </div>
+      <form id="loginForm" class="row sub">
+        <input name="email" type="email" placeholder="email" required>
+        <input name="password" type="password" placeholder="password" required>
+        <button type="submit">Login</button>
+        <button type="button" class="alt" id="logoutBtn">Logout</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Dashboard</h2>
+      <div class="tiles" id="tiles"></div>
+      <p>Aaj ke reminders: <strong id="dueCount">0</strong></p>
+    </section>
+
+    <section class="card">
+      <h2 id="formTitle">Nayi application</h2>
+      <form id="appForm" class="grid2">
+        <input name="company" placeholder="Company *" required>
+        <input name="jobTitle" placeholder="Job title *" required>
+        <select name="status">
+          <option>APPLIED</option>
+          <option>INTERVIEW</option>
+          <option>OFFER</option>
+          <option>REJECTED</option>
+        </select>
+        <input name="appliedOn" type="date" title="Applied on">
+        <input name="followUpOn" type="date" title="Follow-up reminder date">
+        <input name="jobUrl" placeholder="Job URL (https://...)">
+        <textarea name="notes" class="full" placeholder="Notes (recruiter ka naam, round ki detail)"></textarea>
+        <div class="full row">
+          <button type="submit" id="saveBtn">Save</button>
+          <button type="button" class="alt" id="cancelEdit">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <h2>Applications</h2>
+        <select id="filterStatus">
+          <option value="">Sab</option>
+          <option>APPLIED</option>
+          <option>INTERVIEW</option>
+          <option>OFFER</option>
+          <option>REJECTED</option>
+        </select>
+      </div>
+      <div id="apps"></div>
+    </section>
+
+    <section class="card">
+      <h2>Reminders</h2>
+      <div id="reminders"></div>
+    </section>
+
+    <section class="card">
+      <h2>AI follow-up email</h2>
+      <p class="muted">Kisi application par "AI email" dabao. Ye sirf draft hai, aap khud check karke bhejo.</p>
+      <pre id="aiBox">Abhi koi email nahi bani</pre>
+      <div class="row sub">
+        <input id="recruiterEmail" type="email" placeholder="Recruiter ka email (jaise hr@company.com)">
+        <button type="button" id="copyEmailBtn" class="alt">Copy</button>
+        <button type="button" id="mailEmailBtn">Email app mein kholo</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Resume</h2>
+      <p class="muted" id="resumeInfo">Koi resume upload nahi hua</p>
+      <div class="row">
+        <input id="resumeFile" type="file" accept=".pdf,.docx">
+        <button type="button" id="uploadResumeBtn">Upload</button>
+        <button type="button" id="downloadResumeBtn" class="alt">Download</button>
+        <button type="button" id="deleteResumeBtn" class="alt">Delete</button>
+      </div>
+      <p class="muted">Sirf PDF ya DOCX, 5 MB tak.</p>
+    </section>
+
+    <pre id="log">Yahan response dikhega</pre>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

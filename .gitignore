@@ -1,0 +1,7 @@
+target/
+jobtracker.db
+.idea/
+*.iml
+.vscode/
+
+uploads/
