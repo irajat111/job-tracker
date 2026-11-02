@@ -25,10 +25,8 @@ The project is designed to practice Java programming concepts, game logic, and o
 
 Add screenshots of your Pac-Man game here.
 
-```markdown
 <img width="480" height="503" alt="Screenshot 2026-11-01 065120" src="https://github.com/user-attachments/assets/e32e09ed-40fc-47a7-a26e-3bb1926413ac" />
 
-```
 
 ## ▶️ How to Run
 
